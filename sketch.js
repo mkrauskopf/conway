@@ -100,17 +100,15 @@ var sketch = function (p) {
     var drawConfiguration = function () {
         for (var x = 0; x < board.xLines; x++) {
             for (var y = 0; y < board.yLines; y++) {
-                if (board.status[x][y] === 1) {
-                    drawCell(x, y);
-                }
+                drawCell(x, y, board.status[x][y] === 1);
             }
         }
     };
 
-    var drawCell = function (xCell, yCell) {
+    var drawCell = function (xCell, yCell, isAlive) {
         var y = yCell * lineStep;
         var x = xCell * lineStep;
-        p.fill('#4996fd');
+        p.fill(isAlive ? '#4996fd' : 215);
         p.rect(x, y, lineStep, lineStep);
     };
 
